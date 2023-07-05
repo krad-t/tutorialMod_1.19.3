@@ -1,6 +1,7 @@
 package com.krad;
 
 import com.krad.registry.ModBlocks;
+import com.krad.registry.ModEntity;
 import com.krad.registry.ModItemGroup;
 import com.krad.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -25,5 +26,6 @@ public class TutorialMod implements ModInitializer {
 		ModItemGroup.registerModItemGroup();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModEntity.registerModEntities();
 	}
 }

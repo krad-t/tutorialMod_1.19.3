@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:blaze_rod"
+    },
+    "X": {
+      "item": "tutorial-mod:charged_citrine_ingot"
+    }
+  },
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "result": {
+    "item": "tutorial-mod:citrine_sword"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CC",
+    "CC"
+  ],
+  "key": {
+    "C": {
+      "item": "tutorial-mod:citrine"
+    }
+  },
+  "result": {
+    "item": "tutorial-mod:charged_citrine_ingot",
+    "count": 2
+  }
+}

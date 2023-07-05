@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "tutorial-mod:charged_citrine_ingot"
+  },
+  "result": "tutorial-mod:heal_citrine"
+}

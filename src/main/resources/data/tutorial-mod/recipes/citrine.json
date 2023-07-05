@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CRC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "tutorial-mod:raw_citrine"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "tutorial-mod:citrine",
+    "count": 2
+  }
+}
