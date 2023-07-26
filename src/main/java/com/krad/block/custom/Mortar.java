@@ -1,11 +1,17 @@
-package com.krad.registry.Block;
+package com.krad.block.custom;
 
+import com.krad.block.blockEntity.MortarEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -38,31 +44,23 @@ public class Mortar extends BlockWithEntity {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) { // 只在服务器端执行
-            ItemStack heldItem = player.getStackInHand(hand);
-            BlockEntity blockEntity = world.getBlockEntity(pos);
-
-            if (blockEntity instanceof MortarEntity mortarEntity) {
-                ItemStack mortarItemStack = mortarEntity.getInventory().get(0);
-
-                if (mortarItemStack.isEmpty()) {
-                    // 如果研钵内没有物品，则将手持物品放入研钵
-                    mortarEntity.addItem(heldItem);
-                    player.setStackInHand(hand, ItemStack.EMPTY);
-                } else {
-                    // 如果研钵内有物品，则将物品取回到玩家手上
-                    if (player.getInventory().insertStack(mortarItemStack.copy())) {
-                        mortarEntity.removeItem(); // 从研钵中移除物品
-                    } else {
-                        // 玩家背包已满，将物品掉落
-                        player.dropItem(mortarItemStack, false);
-                        mortarEntity.removeItem(); // 从研钵中移除物品
+        if (!world.isClient()) { // 只在服务器端执行
+            if (world.getBlockEntity(pos) instanceof MortarEntity mortarEntity) {
+                if(player.isSneaking()){//按下了潜行
+                    if(hand==Hand.MAIN_HAND){
+                        mortarEntity.craftItem();
+                    }
+                }else{
+                    if(hand==Hand.MAIN_HAND){
+                        ItemStack items = mortarEntity.onUse(player);
+                        if (!player.getInventory().insertStack(items.copy()) && !player.getAbilities().creativeMode) {//非创造模式下,默认插入背包中,背包已满则掉落
+                            player.dropItem(items, false);
+                        }
                     }
                 }
                 return ActionResult.SUCCESS;
             }
         }
-
         return ActionResult.PASS;
     }
 }

@@ -1,4 +1,4 @@
-package com.krad.registry.Block;
+package com.krad.block.blockEntity;
 
 import com.krad.registry.ModBlocks;
 import net.minecraft.block.BlockState;

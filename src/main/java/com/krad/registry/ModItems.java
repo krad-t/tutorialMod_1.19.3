@@ -1,8 +1,8 @@
 package com.krad.registry;
 
 import com.krad.TutorialMod;
-import com.krad.registry.Item.CitrineToolMaterial;
-import com.krad.registry.Item.HealChargedCitrineIngot;
+import com.krad.item.CitrineToolMaterial;
+import com.krad.item.HealChargedCitrineIngot;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;

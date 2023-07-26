@@ -1,4 +1,4 @@
-package com.krad.registry.Item;
+package com.krad.item;
 
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;

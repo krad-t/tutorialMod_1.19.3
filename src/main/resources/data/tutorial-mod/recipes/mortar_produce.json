@@ -1,0 +1,11 @@
+{
+  "type": "tutorial-mod:mortar_squash",
+  "ingredients": [
+    {
+      "item": "tutorial-mod:raw_citrine"
+    }
+  ],
+  "output": {
+    "item": "tutorial-mod:citrine"
+  }
+}

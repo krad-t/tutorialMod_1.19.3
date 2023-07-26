@@ -1,12 +1,12 @@
 package com.krad;
 
+import com.krad.networking.ModMessages;
+import com.krad.recipe.ModRecipes;
 import com.krad.registry.ModBlocks;
 import com.krad.registry.ModItemGroup;
 import com.krad.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.RenderLayer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,9 +24,14 @@ public class TutorialMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
-		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MORTAR, RenderLayer.getCutoutMipped());
 		ModItemGroup.registerModItemGroup();
+
 		ModItems.registerModItems();
+
 		ModBlocks.registerModBlocks();
+
+		ModRecipes.registerRecipes();
+
+		ModMessages.registerC2SPackets();
 	}
 }

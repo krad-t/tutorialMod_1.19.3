@@ -1,10 +1,10 @@
 package com.krad.registry;
 
 import com.krad.TutorialMod;
-import com.krad.registry.Block.Extractor;
-import com.krad.registry.Block.ExtractorEntity;
-import com.krad.registry.Block.Mortar;
-import com.krad.registry.Block.MortarEntity;
+import com.krad.block.blockEntity.ExtractorEntity;
+import com.krad.block.blockEntity.MortarEntity;
+import com.krad.block.custom.Extractor;
+import com.krad.block.custom.Mortar;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -34,7 +34,7 @@ public class ModBlocks {
             ModItemGroup.CITRINE);
 
     public static final Block EXTRACTOR = registerBlock("extractor",
-            new Extractor(FabricBlockSettings.of(Material.METAL).strength(4.0f)),
+            new Extractor(FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque()),
             ModItemGroup.CITRINE);
 
     public static final BlockEntityType<ExtractorEntity> EXTRACTOR_ENTITY = Registry.register(
@@ -45,7 +45,7 @@ public class ModBlocks {
 
     public static final Block MORTAR = registerBlock(
             "mortar",
-            new Mortar(FabricBlockSettings.of(Material.METAL)),
+            new Mortar(FabricBlockSettings.of(Material.METAL).strength(2.0f).nonOpaque()),
             ModItemGroup.CITRINE);
 
     public static final BlockEntityType<MortarEntity> MortarEntityInstance = Registry.register(

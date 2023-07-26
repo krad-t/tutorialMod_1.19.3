@@ -1,4 +1,4 @@
-package com.krad.registry.Item;
+package com.krad.item;
 
 import com.krad.registry.ModItems;
 import net.minecraft.item.ToolMaterial;
